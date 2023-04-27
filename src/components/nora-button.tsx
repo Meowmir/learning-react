@@ -35,7 +35,6 @@ const StyledButton = styled.button`
     color: #65beff;
     border: 0px;
     border-color: transparent;
-    padding: 4px 5px;
   }
 
   &.button__variant--outlined {
@@ -43,7 +42,6 @@ const StyledButton = styled.button`
     color: #65beff;
     border: 1px solid #1976d280;
     border-color: #2270bc80;
-    padding: 3px 9px;
   }
 
   &.button__variant--contained {
@@ -52,7 +50,6 @@ const StyledButton = styled.button`
     border-color: transparent;
     box-shadow: #0d0d0d33 0px 3px 1px -2px, #0d0d0d24 0px 2px 2px 0px,
       #0d0d0d1f 0px 1px 5px 0px;
-    padding: 4px 10px;
   }
 `;
 
@@ -61,6 +58,19 @@ const StyledButton = styled.button`
  */
 export function NoraButton(props: ButtonProps) {
   const classes: string[] = [];
+  // const sizeClasses: string[] = [];
+
+  if (props.size === "small") {
+    classes.push("button__size--small");
+  }
+
+  if (props.size === "medium") {
+    classes.push("button__size--medium");
+  }
+
+  if (props.size === "large") {
+    classes.push("button__size--large");
+  }
 
   if (props.variant === "text") {
     classes.push("button__variant--text");
@@ -70,10 +80,6 @@ export function NoraButton(props: ButtonProps) {
   }
   if (props.variant === "contained") {
     classes.push("button__variant--contained");
-  }
-
-  if (props.size === "small") {
-    classes.push("button__size--small");
   }
 
   return (
