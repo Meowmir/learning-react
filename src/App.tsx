@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import SecondComp, {
   FirstComponent,
-  CatList,
+  PetsList,
 } from "./codecademy/codecademy-react";
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <FirstComponent />
         <SecondComp />
-        <CatList />
+        <PetsList />
       </header>
     </div>
   );

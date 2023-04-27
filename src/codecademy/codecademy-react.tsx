@@ -43,8 +43,8 @@ export function BuyItems() {
   return <Button onClick={handleClick} />;
 }
 
-export function CatList(props: any) {
-  const listOfCats = ["Ymir", "Dexter", "Mango"];
+export function PetsList(props: any) {
+  const listOfPets = ["Ymir", "Dexter", "Mango", "Asmund"];
   /*
   const buttonDesign = (
     <button onClick={props.handleOnClickEvent}>{listOfItems[]}</button>
@@ -53,9 +53,10 @@ export function CatList(props: any) {
 
   return (
     <div>
-      <button onClick={props.handleClick}>{listOfCats[0]}</button>
-      <button onClick={props.handleClick}>{listOfCats[1]}</button>
-      <button onClick={props.handleClick}>{listOfCats[2]}</button>
+      <button onClick={props.handleClick}>{listOfPets[0]}</button>
+      <button onClick={props.handleClick}>{listOfPets[1]}</button>
+      <button onClick={props.handleClick}>{listOfPets[2]}</button>
+      <button onClick={props.handleClick}>{listOfPets[3]}</button>
     </div>
   );
 }
