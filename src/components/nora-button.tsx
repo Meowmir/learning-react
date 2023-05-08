@@ -306,11 +306,15 @@ const StyledButton = styled.button`
     width: 100%;
   }
 
-  &.button__startIcon--true {
+  &.button__startIcon {
     display: inherit;
     margin-right: 8px;
     margin-left: -4px;
-    font-size: 20px;
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentColor;
   }
 `;
 
