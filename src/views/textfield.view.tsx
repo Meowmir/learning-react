@@ -9,12 +9,21 @@ export function TextFieldView(props: TextFieldProps) {
   return (
     <Grid container spacing={2}>
       <Grid item xs={6}>
-        <NoraTextField {...props} />
-      </Grid>
-      <Grid item xs={6}>
-        <TextField {...props} />
         <h3>Outlined</h3>
-        <TextField {...props} /*startIcon={<ThreeDRotation />}*/ />
+        <NoraTextField {...props} variant={"outlined"} />
+        <h3>Filled</h3>
+        <NoraTextField {...props} variant={"filled"} />
+        <h3>Standard</h3>
+        <NoraTextField {...props} variant={"standard"} />
+      </Grid>
+
+      <Grid item xs={6}>
+        <h3>Outlined</h3>
+        <TextField {...props} variant={"outlined"} />
+        <h3>Filled</h3>
+        <TextField {...props} variant={"filled"} />
+        <h3>Standard</h3>
+        <TextField {...props} variant={"standard"} />
       </Grid>
     </Grid>
   );
