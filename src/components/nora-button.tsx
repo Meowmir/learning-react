@@ -6,24 +6,30 @@ const StyledButton = styled.button`
   --inherit-color: #000000;
   --inherit-hover-color: #0000000a;
   --inherit-contained-hover-color: #f5f5f5;
+  --inherit-contained-background-color: #e0e0e0;
+
   --primary-color: #1976d2;
   --primary-hover-color: #1976d20a
-  --primary-contained-hover-color: #1565c0;
+
   --secondary-color: #9c27b0;
   --secondary-hover-color: #9c27b00a;
   --secondary-contained-hover-color: #7b1fa2;
+
   --success-color: #2e7d32;
   --success-hover-color: #2e7d320a;
   --success-contained-hover-color: #1b5e20;
+
   --error-color: #d32f2f;
   --error-hover-color: #d32f2f0a;
   --error-contained-hover-color: #c62828;
+
   --info-color: #0288d1;
   --info-hover-color: #0288d10a;
   --info-contained-hover-color: #01579b;
+
   --warning-color: #ed6c02;
   --warning-hover-color: #ed6c020a;
-  --warnin-contained-hover-color: #e65100;
+  --warning-contained-hover-color: #e65100;
 
   --disabled-color: #00000042;
   --disabled-hover-color: #1976d20a;
@@ -75,20 +81,14 @@ const StyledButton = styled.button`
       color: var(--primary-color);
   }
 
-  &.button__disabled--true {
-    color: var(--disabled-color);
-    pointer-events: none;
-
-    &:hover {
-      color: var(--disabled-grey-color);
-      background-color: var(--disabled-hover-color);
-    }
-  }
-
   &.button__size--small {
     font-size: 0.8125rem;
     padding: 4px 5px;
   }
+
+  &.button__size--medium {
+      padding: 6px 8px;
+    }
 
   &.button__size--large {
     font-size: 0.9375rem;
@@ -96,13 +96,23 @@ const StyledButton = styled.button`
   }
 
   &.button__variant--outlined {
-    padding: 5px 15px;
     border: 1px solid #1976d280;
     border-color: #2270bc80;
+
+    &.button__size--small {
+      padding: 3px 9px;
+    }
+
+    &.button__size--medium {
+      padding: 5px 15px;
+    }
+
+    &.button__size--large {
+      padding: 7px 21px;
+    }
   }
 
   &.button__variant--contained {
-    padding: 6px 16px;
     background-color: var(--primary-color);
     box-shadow: var(--contained--box-shadow);
   }
@@ -131,7 +141,7 @@ const StyledButton = styled.button`
 
     &.button__variant--contained {
       color: var(--inherit-color);
-      background-color: var(--inherit-color);
+      background-color: var(--inherit-contained-background-color);
       box-shadow: var(--contained--box-shadow);
 
       &:hover {
@@ -147,7 +157,7 @@ const StyledButton = styled.button`
       color: var(--primary-color);
 
       &:hover {
-        background-color: var(--primary-hover-color);
+        background-color: #1976d20a;;
       }
     }
 
@@ -161,18 +171,19 @@ const StyledButton = styled.button`
     }
 
     &.button__variant--contained {
+      color: var(--white-color);
       background-color: var(--primary-color);
       box-shadow: var(--contained--box-shadow);
 
       &:hover {
-        background-color: var(--primary-contained-hover-color);
+        background-color: #1565c0;
         box-shadow: var(--contained--hover--box-shadow);
       }
     }
   }
 
   &.button__color--secondary {
-    color: var(--secondary-color);
+    color: #9c27b0;
 
     &.button__variant--text {
       color: var(--secondary-color);
@@ -194,7 +205,8 @@ const StyledButton = styled.button`
     }
 
     &.button__variant--contained {
-      background-color: var(--secondary-color);
+      color: #fff;
+      background-color: #9c27b0;
       box-shadow: var(--contained--box-shadow);
 
       &:hover {
@@ -227,6 +239,7 @@ const StyledButton = styled.button`
     }
 
     &.button__variant--contained {
+      color: #fff;
       background-color: var(--success-color);
       box-shadow: var(--contained--box-shadow);
 
@@ -259,6 +272,7 @@ const StyledButton = styled.button`
     }
 
     &.button__variant--contained {
+      color: #fff;
       background-color: var(--error-color);
       box-shadow: var(--contained--box-shadow);
 
@@ -290,6 +304,7 @@ const StyledButton = styled.button`
       }
     }
     &.button__variant--contained {
+      color: #fff;
       background-color: var(--info-color);
       box-shadow: var(--contained--box-shadow);
 
@@ -321,6 +336,7 @@ const StyledButton = styled.button`
       }
     }
     &.button__variant--contained {
+      color: #fff;
       background-color: var(--warning-color);
       box-shadow: var(--contained--box-shadow);
 
@@ -349,6 +365,16 @@ const StyledButton = styled.button`
     display: inline-block;
     fill: currentColor;
   }
+
+  &.button__disabled--true {
+    color: var(--disabled-color);
+    pointer-events: none;
+
+    &:hover {
+      color: var(--disabled-grey-color);
+      background-color: var(--disabled-hover-color);
+    }
+  }
 `;
 
 const StyledLink = StyledButton.withComponent("a");
@@ -369,6 +395,8 @@ export function NoraButton(props: ButtonProps) {
     classes.push("button__size--small");
   } else if (props.size === "large") {
     classes.push("button__size--large");
+  } else if (props.size === "medium") {
+    classes.push("button__size--medium");
   }
 
   if (props.variant === "text") {
