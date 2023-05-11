@@ -367,13 +367,24 @@ const StyledButton = styled.button`
   }
 
   &.button__disabled--true {
-    color: var(--disabled-color);
     pointer-events: none;
 
-    &:hover {
-      color: var(--disabled-grey-color);
-      background-color: var(--disabled-hover-color);
+    &.button__variant--text{
+      color: #00000042;
+      pointer-events: none;
     }
+
+    &.button__variant--outlined{
+      color: #00000042;
+      border: 1px solid #0000001f;
+    }
+
+    &.button__variant--contained{
+      color: #00000042;
+      box-shadow: none;
+      background-color: #0000001f;
+    }
+
   }
 `;
 
@@ -386,10 +397,6 @@ export function NoraButton(props: ButtonProps) {
   const classes: string[] = [];
   const Elem = props.href ? StyledLink : StyledButton;
   let tabNum = props.tabIndex;
-
-  if (props.disabled) {
-    classes.push("button__disabled--true");
-  }
 
   if (props.size === "small") {
     classes.push("button__size--small");
@@ -431,6 +438,10 @@ export function NoraButton(props: ButtonProps) {
 
   if (props.fullWidth) {
     classes.push("button__full-width--true");
+  }
+
+  if (props.disabled) {
+    classes.push("button__disabled--true");
   }
 
   return (
