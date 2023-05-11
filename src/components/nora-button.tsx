@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { ButtonProps } from "@mui/material";
 import styled from "@emotion/styled";
 
 const StyledButton = styled.button`
-  --inherit-color: #e0e0e0;
+  --inherit-color: #000000;
   --inherit-hover-color: #0000000a;
   --inherit-contained-hover-color: #f5f5f5;
   --primary-color: #1976d2;
@@ -38,7 +38,6 @@ const StyledButton = styled.button`
 
   padding: 6px 8px;
   background-color: transparent;
-  color: var(--primary-color);
   border: 0px;
   border-radius: 4px;
   border-color: transparent;
@@ -55,6 +54,26 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   vertical-align: middle;
+
+  .button__startIcon{
+    display: inherit;
+    margin-right: 8px;
+    margin-left: -4px;
+  }
+
+  .button__endIcon{
+    display: inherit;
+    margin-left: 8px;
+    margin-right: -4px;
+  }
+
+  .MuiSvgIcon-root{
+    font-size: 20px;
+  }
+
+  &.button__start{
+      color: var(--primary-color);
+  }
 
   &.button__disabled--true {
     color: var(--disabled-color);
@@ -89,8 +108,10 @@ const StyledButton = styled.button`
   }
 
   &.button__color--inherit {
+    color: var(--inherit-color);
+
     &.button__variant--text {
-      color: inherit;
+      color: var(--inherit-color);
 
       &:hover {
         background-color: var(--inherit-hover-color);
@@ -99,7 +120,7 @@ const StyledButton = styled.button`
 
     &.button__variant--outlined {
       border: 1px solid currentColor;
-      color: inherit;
+      color: var(--inherit-color);
       border-color: currentColor;
 
       &:hover {
@@ -109,7 +130,7 @@ const StyledButton = styled.button`
     }
 
     &.button__variant--contained {
-      color: inherit;
+      color: var(--inherit-color);
       background-color: var(--inherit-color);
       box-shadow: var(--contained--box-shadow);
 
@@ -120,6 +141,8 @@ const StyledButton = styled.button`
   }
 
   &.button__color--primary {
+      color: var(--primary-color);
+
     &.button__variant--text {
       color: var(--primary-color);
 
@@ -149,6 +172,8 @@ const StyledButton = styled.button`
   }
 
   &.button__color--secondary {
+    color: var(--secondary-color);
+
     &.button__variant--text {
       color: var(--secondary-color);
 
@@ -180,6 +205,8 @@ const StyledButton = styled.button`
   }
 
   &.button__color--success {
+    color: var(--success-color);
+
     &.button__variant--text {
       color: var(--success-color);
 
@@ -211,6 +238,8 @@ const StyledButton = styled.button`
   }
 
   &.button__color--error {
+    color: var(--error-color);
+
     &.button__variant--text {
       color: var(--error-color);
 
@@ -241,6 +270,8 @@ const StyledButton = styled.button`
   }
 
   &.button__color--info {
+    color: var(--info-color);
+
     &.button__variant--text {
       color: var(--info-color);
 
@@ -270,6 +301,8 @@ const StyledButton = styled.button`
   }
 
   &.button__color--warning {
+    color: var(--warning-color);
+
     &.button__variant--text {
       color: var(--warning-color);
 
@@ -360,6 +393,8 @@ export function NoraButton(props: ButtonProps) {
     classes.push("button__color--success");
   } else if (props.color === "primary") {
     classes.push("button__color--primary");
+  } else {
+    classes.push("button__start");
   }
 
   if (props.disableElevation) {
@@ -377,9 +412,9 @@ export function NoraButton(props: ButtonProps) {
       disabled={props.disabled || undefined}
       href={props.href || undefined}
     >
-      {props.startIcon}
+      <span className={"button__startIcon"}>{props.startIcon}</span>
       {props.children}
-      {props.endIcon}
+      <span className={"button__endIcon"}>{props.endIcon}</span>
     </Elem>
   );
 }
