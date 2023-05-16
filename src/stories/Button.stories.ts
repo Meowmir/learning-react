@@ -1,3 +1,4 @@
+import { ClassNames } from "@emotion/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ButtonView } from "../views/button.view";
@@ -8,7 +9,15 @@ const meta = {
   component: ButtonView,
   tags: ["autodocs"],
   argTypes: {
-    color: { control: "color" },
+    startIcon: { table: { disable: true } },
+    endIcon: { table: { disable: true } },
+    classes: { table: { disable: true } },
+    TouchRippleProps: { table: { disable: true } },
+    touchRippleRef: { table: { disable: true } },
+    LinkComponent: { table: { disable: true } },
+    onFocusVisible: { table: { disable: true } },
+    sx: { table: { disable: true } },
+    action: { table: { disable: true } },
   },
 } satisfies Meta<typeof ButtonView>;
 
